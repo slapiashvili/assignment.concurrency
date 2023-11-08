@@ -8,15 +8,15 @@
 import UIKit
 import BigInt
 
-class CompetitionManager {
+final class CompetitionManager {
     
-    func generateTwoNumbers() -> (Int, Int) {
+    private func generateTwoNumbers() -> (Int, Int) {
         let firstNumber = Int.random(in: 20...50)
         let secondNumber = Int.random(in: 20...50)
         return (firstNumber, secondNumber)
     }
     
-    func factorial(of number: Int) -> BigInt {
+    private func factorial(of number: Int) -> BigInt {
         if number < 0 {
             return 0
         }
@@ -29,7 +29,7 @@ class CompetitionManager {
     }
 
     
-    func RostevaniCounts(number1: Int, number2: Int, completion: @escaping () -> Void) {
+    private func RostevaniCounts(number1: Int, number2: Int, completion: @escaping () -> Void) {
         DispatchQueue.global().async { [self] in
             _ = self.factorial(of: number1)
             _ = factorial(of: number2)
@@ -39,7 +39,7 @@ class CompetitionManager {
         }
     }
     
-    func AvtandiliCounts(number1: Int, number2: Int, completion: @escaping () -> Void) {
+    private func AvtandiliCounts(number1: Int, number2: Int, completion: @escaping () -> Void) {
         DispatchQueue.global().async { [self] in
             _ = self.factorial(of: number1)
             _ = factorial(of: number2)
@@ -57,7 +57,7 @@ class CompetitionManager {
         
         group.enter()
         RostevaniCounts(number1: number1, number2: number2) {
-            winner = winner ?? "გამარჯვებულია თვით მეომარი უებრო, კვლა მოუბარი წყლიანი არაბეთის ხელმწიფე როსტევანი"
+            winner = winner ?? "გამარჯვებულია თვით მეომარი უებრო, კვლა მოუბარი წყლიანი არაბეთის ხელმწიფე როსტევანი!"
             group.leave()
         }
         

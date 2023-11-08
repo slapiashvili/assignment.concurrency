@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompetitionMainViewController: UIViewController {
+final class CompetitionMainViewController: UIViewController {
     let competitionManager = CompetitionManager()
     
     override func viewDidLoad() {
